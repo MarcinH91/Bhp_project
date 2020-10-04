@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load extras %}
+{% block content %}
+  <ul>
+    {% for products in object_list %}
+      <li>
+        {% sz_format product short=True %}
+        <a href="{% url 'core:sz_detail' movie.pk %}">Detail</a> /
+        <a href="{% url 'core:sz_update' movie.pk %}">Update</a> /
+        <a href="{% url 'core:sz_delete' movie.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
