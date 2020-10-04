@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load extras %}
+
+{% block content %}
+  {{ movie | attr_as_p:'title' }}
+  {{ movie | attr_as_p:'category' }}
+  {{ movie | attr_as_p:'description' }}
+  {{ movie | attr_as_p:'creation_date' }}
+  {{ movie | attr_as_p:'price' }}
+
+{% endblock %}
