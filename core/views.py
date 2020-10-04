@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 
 
-class ProductGoToCartView(DetailView):
+class GoToCartView(DetailView):
     pass
 
 
@@ -19,4 +19,8 @@ class ProductCreateView(CreateView):
 
 
 class ProductDeleteView(DeleteView):
+    pass
+
+
+class ContactView(DetailView):
     pass
