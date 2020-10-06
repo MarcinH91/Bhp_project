@@ -8,6 +8,10 @@ class Category(models.Model):
         return self.name
 
 
+class Order(models.Model):
+    pass
+
+
 class Product(models.Model):
     title = models.CharField(max_length=120)
     category = models.ForeignKey(Category, null=True,  max_length=120, on_delete=models.SET_NULL)
