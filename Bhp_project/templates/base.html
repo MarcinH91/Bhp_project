@@ -28,9 +28,9 @@
                         Produkty
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/">Szkolenia</a>
-                        <a class="dropdown-item" href="/">Kursy</a>
-                        <a class="dropdown-item" href="/">Usługi</a>
+                        <a class="dropdown-item" href="{% url 'core:product_courses' %}">Kursy</a>
+                        <a class="dropdown-item" href="{% url 'core:product_trainings' %}">Szkolenia</a>
+                        <a class="dropdown-item" href="{% url 'core:product_services' %}">Usługi</a>
                     </div>
                 </div>
                 <a class="nav-item nav-link active" href="/">
