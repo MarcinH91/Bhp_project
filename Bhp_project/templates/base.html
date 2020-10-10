@@ -37,9 +37,17 @@
                     Kontakt
                 </a>
 
+
             </div>
         </div>
         <div class="navbar-nav ml-auto">
+            <div class="'navbar-nav ml-auto">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active right" href="/">
+                        <img src="{% static 'cart.png' %}" style="width:30px;height:30px">
+                    </a>
+                </div>
+            </div>
             <div class="nav-item dropdown">
                 {% if user.is_authenticated %}
                     <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">
