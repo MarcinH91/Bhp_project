@@ -5,10 +5,10 @@ from django.utils.safestring import SafeString
 register = Library()
 
 @register.simple_tag
-def sz_format(product, short=False):
+def product_format(product, short=False):
     if short:
         return f'{product.title} ({product.category})'
-    return f'{product.title} ({product.category}) - {product.price}'
+    return f'{product.title} ({product.category}) - {product.price} $'
 
 @register.filter
 def attr_as_p(obj, attrname):

@@ -4,10 +4,11 @@
 
 {% block content %}
 
-  <ul>
-    {% for products in object_list %}
-      <li>{% sz_format product %}</li>
+
+<ul>
+    {% for product in object_list %}
+        <li>{% product_format product %}</li>
     {% endfor %}
-  </ul>
+</ul>
 
 {% endblock %}

@@ -1,49 +1,57 @@
-
 {% load bootstrap4 %}
 {% load static %}
 
-<html {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}"{% endif %}>
+<html {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}" {% endif %}>
 
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Szkolenia i Usługi BHP</title>
-      {% block styles %}{% bootstrap_css %}{% endblock %}
-      {% block scripts %}{% bootstrap_javascript jquery='full' %}{% endblock %}
-  </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Szkolenia i Usługi BHP</title>
+    {% block styles %}{% bootstrap_css %}{% endblock %}
+    {% block scripts %}{% bootstrap_javascript jquery='full' %}{% endblock %}
+</head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container fixed">
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container fixed">
         <a class="navbar-brand" href="{% url 'index' %}">Strona główna</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/">
-              Home
-            </a>
-            <div class="nav-item dropdown">
-              <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">
-                Szkolenia
-              </a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="/">
+                    Home
+                </a>
+                <div class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">
+                        Produkty
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'core:product_courses' %}">Kursy</a>
+                        <a class="dropdown-item" href="{% url 'core:product_trainings' %}">Szkolenia</a>
+                        <a class="dropdown-item" href="{% url 'core:product_services' %}">Usługi</a>
+                    </div>
+                </div>
+                <a class="nav-item nav-link active" href="/">
+                    Kontakt
+                </a>
             </div>
-            <a class="nav-item nav-link active" href="/">
-              Kontakt
-            </a>
-            <a class="nav-item nav-link active" href="/">
-              Koszyk
-            </a>
-          </div>
+            <div class="'navbar-nav ml-auto">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active right" href="/">
+                        <img src="{% static 'cart.png' %}" style="width:30px;height:30px">
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="jumbotron">
-        {% block content %}{% endblock %}
-      </div>
     </div>
-  </body>
+</nav>
+<div class="container">
+    <div class="jumbotron">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
 
 </html>

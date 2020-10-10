@@ -4,10 +4,10 @@
   <ul>
     {% for products in object_list %}
       <li>
-        {% sz_format product short=True %}
-        <a href="{% url 'core:sz_detail' movie.pk %}">Detail</a> /
-        <a href="{% url 'core:sz_update' movie.pk %}">Update</a> /
-        <a href="{% url 'core:sz_delete' movie.pk %}">Delete</a>
+        {% product_format product short=True %}
+        <a href="{% url 'core:product_detail' movie.pk %}">Detail</a> /
+        <a href="{% url 'core:product_update' movie.pk %}">Update</a> /
+        <a href="{% url 'core:product_delete' movie.pk %}">Delete</a>
       </li>
     {% endfor %}
   </ul>
