@@ -9,6 +9,7 @@
     {% for product in object_list %}
         {% if product.category.name == 'training' %}
             <li>{% product_format product %}</li>
+            <a href="#" class="btn btn-success">Dodaj do koszyka</a>
         {% endif %}
     {% endfor %}
 </ul>
