@@ -23,10 +23,15 @@
                 <a class="nav-item nav-link active" href="/">
                     Home
                 </a>
-                <div class="nav-item dropdown">
+                <div class="nav-item dropdown dropdown-menu-center">
                     <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">
                         Szkolenia
                     </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'core:product_courses' %}">Kursy</a>
+                        <a class="dropdown-item" href="{% url 'core:product_trainings' %}">Szkolenia</a>
+                        <a class="dropdown-item" href="{% url 'core:product_services' %}">Usługi</a>
+                    </div>
                 </div>
                 <a class="nav-item nav-link active" href="/">
                     Kontakt
@@ -50,7 +55,7 @@
                     <a class="nav-link active dropdown-toggle" href="#" data-toggle="dropdown">
                         You are not logged in.
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-menu">
                         <a class="dropdown-item text-right" href="{% url 'accounts:login' %}">Login</a>
                         <a class="dropdown-item text-right" href="{% url 'accounts:sign_up' %}">Sign Up!</a>
                     </div>
