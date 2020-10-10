@@ -4,7 +4,7 @@ from django.contrib.auth.forms import (
     AuthenticationForm, PasswordChangeForm, UserCreationForm
 )
 from django.db.transaction import atomic
-from django.forms import CharField, Form, Textarea
+from django.forms import CharField, Form, Textarea, EmailField
 
 from accounts.models import Profile
 
@@ -17,18 +17,31 @@ class SubmittableForm(Form):
 
 
 class SignUpForm(SubmittableForm, UserCreationForm):
-    shoes = CharField(
-        label='Tell me your shoes size. (for ex. 40)',
-        widget=Textarea,
-        min_length=1,
-    )
+
+    first_name = CharField(max_length=100, help_text='Last Name', required=True)
+    last_name = CharField(max_length=100, help_text='Last Name', required=True)
+    email = EmailField(max_length=150, help_text='Email', required=True)
+    company_name = CharField(max_length=100, required=False,
+                             help_text='If you want to receive an invoice, please write your company details')
+    company_adress = CharField(max_length=100, required=False)
+    nip_number = CharField(max_length=18, required=False)
+    regon_number = CharField(max_length=22, required=False)
+
+
+
     class Meta(UserCreationForm.Meta):
-        fields = ['username', 'first_name']
+        fields = ['username', 'first_name', 'last_name', 'email',
+                  'company_name', 'company_adress',
+                  'nip_number', 'regon_number']
 
     def save(self, commit=True, *args, **kwargs):
         user = super().save(commit)
-        shoes = self.cleaned_data['shoes']
-        profile = Profile(shoes=shoes, user=user)
+        company_name = self.cleaned_data['company_name']
+        company_adress = self.cleaned_data['company_adress']
+        nip_number = self.cleaned_data['nip_number']
+        regon_number = self.cleaned_data['regon_number']
+        profile = Profile(user=user, company_name=company_name, company_adress=company_adress,
+                          nip_number=nip_number, regon_number=regon_number)
         profile.save()
         return user
 
