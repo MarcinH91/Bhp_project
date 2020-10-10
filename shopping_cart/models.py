@@ -15,7 +15,7 @@ class OrderItem(models.Model):
 
 
 class Order(models.Model):
-    ref_code = models.CharField(max_length=150)
+    ref_code = models.CharField(max_length=150, null=True)
     owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
     is_ordered = models.BooleanField(default=False)
     items = models.ManyToManyField(OrderItem)
