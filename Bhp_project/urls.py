@@ -23,4 +23,5 @@ urlpatterns = [
     path('core/', include('core.urls', namespace='core')),
     path('', IndexView.as_view(), name='index'),
     path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('sendemail/', include('sendemail.urls', namespace='sendemail'))
 ]

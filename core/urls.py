@@ -4,7 +4,8 @@ from core.views import (
     ProductListView,
     ProductCourseListView,
     ProductTrainingListView,
-    ProductServiceListView
+    ProductServiceListView,
+    ProductDetailView
 )
 
 app_name = 'core'
@@ -14,4 +15,6 @@ urlpatterns = [
     path('product/list/courses', ProductCourseListView.as_view(), name='product_courses'),
     path('product/list/trainings', ProductTrainingListView.as_view(), name='product_trainings'),
     path('product/list/services', ProductServiceListView.as_view(), name='product_services'),
+    path('product/list/details/<pk>', ProductDetailView.as_view(), name='product_details'),
+
 ]

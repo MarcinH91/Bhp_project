@@ -4,5 +4,5 @@ from core.views import ProductListView
 
 
 class IndexView(ProductListView):
-    title = 'Welcome to Django Movies!'
+    title = 'Witamy w firmie Szkolenia Bhp!'
     template_name = 'index.html'

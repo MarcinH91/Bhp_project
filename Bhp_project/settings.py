@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'accounts',
+    'sendemail',
     'bootstrap4',
     'crispy_forms',
+
 
 ]
 
@@ -59,8 +61,7 @@ ROOT_URLCONF = 'Bhp_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join('Bhp_project', 'templates')]
-        ,
+        'DIRS': [os.path.join('Bhp_project', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +134,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
+
+DEFAULT_FROM_EMAIL = 'kontakt@szkoleniabhp.pl'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
