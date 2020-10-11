@@ -24,4 +24,5 @@ urlpatterns = [
     path('shopping_cart/', include('shopping_cart.urls', namespace='shopping_cart')),
     path('', IndexView.as_view(), name='index'),
     path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('sendemail/', include('sendemail.urls', namespace='sendemail'))
 ]
