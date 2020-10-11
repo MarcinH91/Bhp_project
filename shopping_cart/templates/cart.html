@@ -4,7 +4,11 @@
 
 {% block content %}
 
-Shopping cart dummy
+{% for item in object_list %}
+{% for x in item.items.all %}
+<li>{{ x }}
 
+{% endfor %}
+{% endfor %}
 
 {% endblock %}

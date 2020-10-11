@@ -9,9 +9,15 @@
     {% for product in object_list %}
         {% if product.category.name == 'course' %}
             <li>{% product_format product %}</li>
-            <a href="#" class="btn btn-success">Dodaj do koszyka</a>
-    {% endif %}
+                <form action="{% url 'shopping_cart:add_to_cart' product.pk %}" method="post" target="frame">
+                    {% csrf_token %}
+                    <button onclick="document.getElementById('Dodaj').click()">Dodaj do koszyka</button>
+                    <input id="Dodaj" type="submit" style="display:none"></input>
+                </form>
+        {% endif %}
     {% endfor %}
 </ul>
+
+<iframe name="frame" style="display: none"></iframe>
 
 {% endblock %}
