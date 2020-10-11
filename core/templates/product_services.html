@@ -11,8 +11,8 @@
             <li>{% product_format product %}</li>
                 <form action="{% url 'shopping_cart:add_to_cart' product.pk %}" method="post" target="frame">
                     {% csrf_token %}
-                    <button onclick="document.getElementById('Dodaj').click()">Dodaj do koszyka</button>
-                    <input id="Dodaj" type="submit" style="display:none"></input>
+                    <button onclick="document.getElementById('{{ product.pk }}').click()">Dodaj do koszyka</button>
+                    <input id="{{ product.pk }}" type="submit" style="display:none">
                 </form>
         {% endif %}
     {% endfor %}
