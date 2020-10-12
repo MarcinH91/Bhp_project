@@ -21,6 +21,7 @@ from Bhp_project.views import IndexView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('core/', include('core.urls', namespace='core')),
+    path('shopping_cart/', include('shopping_cart.urls', namespace='shopping_cart')),
     path('', IndexView.as_view(), name='index'),
-    # path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
 ]

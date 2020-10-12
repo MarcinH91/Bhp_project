@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load extras %}
+
+{% block content %}
+
+{% for item in object_list %}
+{% for x in item.items.all %}
+<li>{{ x }}
+
+{% endfor %}
+{% endfor %}
+
+{% endblock %}
