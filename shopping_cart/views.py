@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
@@ -9,7 +10,8 @@ from shopping_cart.models import Order
 from core.models import Product
 
 
-@require_http_methods(["POST"])
+
+@login_required
 def add_to_cart(request, pk):
     product = Product.objects.get(id=pk)
     order = Order.objects.get(id=1)

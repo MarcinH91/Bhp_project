@@ -20,8 +20,16 @@ class SignUpForm(SubmittableForm, UserCreationForm):
     class Meta(UserCreationForm.Meta):
         fields = ['username', 'first_name']
 
+    def save(self, commit=True, *args, **kwargs):
+        user = super().save(commit)
+        profile = Profile(user=user)
+        profile.save()
+        return user
+
+
 class SubmittableAuthenticationForm(SubmittableForm, AuthenticationForm):
     pass
+
 
 class SubmittablePasswordChangeForm(SubmittableForm, PasswordChangeForm):
     pass
