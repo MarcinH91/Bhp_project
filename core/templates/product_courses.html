@@ -9,7 +9,7 @@
     {% for product in object_list %}
         {% if product.category.name == 'course' %}
             <li>{% product_format product %}</li>
-                <form action="{% url 'shopping_cart:add_to_cart' product.pk %}" method="post" target="frame">
+                <form action="{% url 'shopping_cart:add_to_cart' product.slug %}" method="post" target="frame">
                     {% csrf_token %}
                     <button onclick="document.getElementById('{{ product.pk }}').click()">Dodaj do koszyka</button>
                     <input id="{{ product.pk }}" type="submit" style="display:none">
@@ -18,6 +18,6 @@
     {% endfor %}
 </ul>
 
-<iframe name="frame" style="display: none"></iframe>
+<!--<iframe name="frame" style="display: none"></iframe>-->
 
 {% endblock %}

@@ -2,7 +2,7 @@ from django.urls import path
 
 from shopping_cart.views import (
     RemoveFromCartView,
-    GoToCartView,
+    OrderSummaryView,
     add_to_cart
 
 )
@@ -10,8 +10,7 @@ from shopping_cart.views import (
 app_name = 'shopping_cart'
 
 urlpatterns = [
-    path('add/<pk>', add_to_cart, name='add_to_cart'),
-    # path('add_to_cart/<pk>', AddToCartView.as_view(), name='add_to_cart'),
+    path('add/<slug>', add_to_cart, name='add_to_cart'),
     path('remove_from_cart/<pk>', RemoveFromCartView.as_view(), name='remove_from_cart'),
-    path('cart', GoToCartView.as_view(), name='cart')
+    path('cart', OrderSummaryView.as_view(), name='cart')
 ]
