@@ -10,6 +10,10 @@ class OrderItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     ordered = models.BooleanField(default=False)
 
+    def get_total_item_price(self):
+        return self.item.price
+
+
 
 class Order(models.Model):
     ref_code = models.CharField(max_length=150, null=True)
@@ -20,3 +24,9 @@ class Order(models.Model):
 
     def __str__(self):
         return f'{self.ref_code}'
+
+    def get_total(self):
+        total = 0
+        for order_item in self.items.all():
+            total += order_item.get_total_item_price()
+        return total

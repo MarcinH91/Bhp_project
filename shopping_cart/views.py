@@ -14,7 +14,6 @@ from core.models import Product
 from accounts.models import Profile
 
 
-
 @login_required
 def add_to_cart(request, slug):
     item = get_object_or_404(Product, slug=slug)
@@ -42,15 +41,32 @@ def add_to_cart(request, slug):
         messages.info(request, 'Produkt został dodany do koszyka')
         return redirect('/')
 
-# class ProductRemoveViev(DeleteView):
-#     model = Order
-#     success_url = reverse('shopping_cart:cart')
-#     pass
 
-
-class RemoveFromCartView(ListView):
-    template_name = 'cart.html'
-    model = Order
+@login_required
+def remove_from_cart(request, slug):
+    item = get_object_or_404(Product, slug=slug)
+    order_queryset = Order.objects.filter(
+        user=request.user,
+        is_ordered=False
+    )
+    if order_queryset.exists():
+        order = order_queryset[0]
+        if order.items.filter(item__slug=item.slug).exists():
+            order_item = OrderItem.objects.filter(
+                item=item,
+                user=request.user,
+                ordered=False
+            )[0]
+            order.items.remove(order_item)
+            order_item.delete()
+            messages.info(request, "This item was removed from your cart.")
+            return redirect("shopping_cart:cart")
+        else:
+            messages.info(request, "This item was not in your cart")
+            return redirect("/")
+    else:
+        messages.info(request, "You do not have an active order")
+        return redirect("/")
 
 
 class OrderSummaryView(LoginRequiredMixin, View):
@@ -63,4 +79,4 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return render(self.request, 'cart.html', context)
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
-            return redirect("/")
+            return render(self.request, 'cart.html')
