@@ -37,6 +37,15 @@
                                     </div>
                                 </div>
 
+                                <div class="col-lg-4 col-md-1 mb-4">
+                                    <label for="billing_city">Miasto</label>
+                                    <input type='text' placeholder='Warszawa' id='billing_city' name='billing_city'
+                                           class='form-control'/>
+                                    <div class="invalid-feedback">
+                                        Prodzę podać miasto.
+                                    </div>
+                                </div>
+
                             </div>
 
                             <div class="custom-control custom-checkbox">
@@ -87,19 +96,9 @@
 
 {% block extra_scripts %}
 <script>
-    var hideable_shipping_form = $('.hideable_shipping_form');
     var hideable_billing_form = $('.hideable_billing_form');
 
-    var use_default_shipping = document.querySelector("input[name=use_default_shipping]");
     var use_default_billing = document.querySelector("input[name=use_default_billing]");
-
-    use_default_shipping.addEventListener('change', function () {
-        if (this.checked) {
-            hideable_shipping_form.hide();
-        } else {
-            hideable_shipping_form.show();
-        }
-    })
 
     use_default_billing.addEventListener('change', function () {
         if (this.checked) {

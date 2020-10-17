@@ -90,7 +90,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return render(self.request, 'cart.html')
 
 
-class CheckoutView(View):
+class CheckoutView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
         try:
             order = Order.objects.get(user=self.request.user, is_ordered=False)
@@ -179,4 +179,4 @@ class CheckoutView(View):
                     return redirect('core:checkout')
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
-            return redirect("core:order-summary")
+            return redirect("/")
