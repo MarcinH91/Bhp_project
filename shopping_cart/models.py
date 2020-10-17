@@ -27,8 +27,11 @@ class Address(models.Model):
         if not self.default:
             return super(Address, self).save(*args, **kwargs)
         with transaction.atomic():
+            user = User.objects.get(username=self.user.username)
             Address.objects.filter(
-                default=True).update(default=False)
+                default=True,
+                user=user
+            ).delete()
             return super(Address, self).save(*args, **kwargs)
 
     def __str__(self):

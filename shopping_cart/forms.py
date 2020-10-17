@@ -5,13 +5,14 @@ from django_countries.widgets import CountrySelectWidget
 PAYMENT_CHOICES = (
     ('B', 'Blik'),
     ('P', 'PayPal'),
-    ('O', 'Przelew')
+    ('O', 'Przelew'),
+    ('K', 'Karta')
 )
 
 
 class CheckoutForm(forms.Form):
     billing_address = forms.CharField(required=False, initial='ul. Krakowska 5')
-    billing_country = CountryField(blank_label='(wybierz kraj').formfield(
+    billing_country = CountryField(default='PL' ,blank_label='(wybierz kraj').formfield(
         required=False,
         widget=CountrySelectWidget(attrs={
             'class': 'custom-select d-block w-100',

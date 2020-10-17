@@ -123,7 +123,6 @@ class CheckoutView(LoginRequiredMixin, View):
                 if use_default_billing:
                     address_qs = Address.objects.filter(
                         user=self.request.user,
-                        address_type='B',
                         default=True
                     )
                     if address_qs.exists():
@@ -173,6 +172,8 @@ class CheckoutView(LoginRequiredMixin, View):
                     return redirect('core:payment', payment_option='paypal')
                 elif payment_option == 'O':
                     return redirect('core:payment', payment_option='przelew')
+                elif payment_option == 'K':
+                    return redirect('core:payment', payment_option='karta')
                 else:
                     messages.warning(
                         self.request, "Invalid payment option selected")
