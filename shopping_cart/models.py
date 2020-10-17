@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from django_countries.fields import CountryField
 from core.models import Product
 from accounts.models import Profile
 
@@ -14,6 +14,21 @@ class OrderItem(models.Model):
         return self.item.price
 
 
+class Address(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    street_address = models.CharField(max_length=100)
+    apartment_address = models.CharField(max_length=100)
+    country = CountryField(multiple=False)
+    zip = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    default = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.username
+
+    class Meta:
+        verbose_name_plural = 'Addresses'
+
 
 class Order(models.Model):
     ref_code = models.CharField(max_length=150, null=True)
@@ -21,6 +36,8 @@ class Order(models.Model):
     is_ordered = models.BooleanField(default=False)
     items = models.ManyToManyField(OrderItem)
     ordered_date = models.DateTimeField(auto_now=True)
+    billing_address = models.ForeignKey(
+        Address, related_name='billing_address', on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
         return f'{self.ref_code}'
