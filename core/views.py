@@ -41,3 +41,4 @@ class ProductDeleteView(DeleteView):
 
 class ContactView(DetailView):
     pass
+

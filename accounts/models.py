@@ -1,8 +1,11 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
-from django.db.models import CASCADE, Model, OneToOneField, CharField
+from django.db.models import CASCADE, Model, OneToOneField, CharField, ManyToManyField
 from django.contrib.auth.models import User
+from core.models import Product
+from django.db.models.signals import post_save
 
-# Create your models here.
+
 class Profile(Model):
     user = OneToOneField(User, on_delete=CASCADE)
-    shoes = CharField(max_length=2)
+    bought_products = ManyToManyField(Product, blank=True)
+

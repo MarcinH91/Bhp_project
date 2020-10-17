@@ -17,23 +17,19 @@ class SubmittableForm(Form):
 
 
 class SignUpForm(SubmittableForm, UserCreationForm):
-    shoes = CharField(
-        label='Tell me your shoes size. (for ex. 40)',
-        widget=Textarea,
-        min_length=1,
-    )
     class Meta(UserCreationForm.Meta):
         fields = ['username', 'first_name']
 
     def save(self, commit=True, *args, **kwargs):
         user = super().save(commit)
-        shoes = self.cleaned_data['shoes']
-        profile = Profile(shoes=shoes, user=user)
+        profile = Profile(user=user)
         profile.save()
         return user
 
+
 class SubmittableAuthenticationForm(SubmittableForm, AuthenticationForm):
     pass
+
 
 class SubmittablePasswordChangeForm(SubmittableForm, PasswordChangeForm):
     pass
