@@ -6,21 +6,34 @@
 
 
 <ul>
-    {% for product in object_list %}
-        {% if product.category.name == 'course' %}
-            <li>{% product_format product %}</li>
-                    {% if user.is_authenticated %}
-                        <form action="{% url 'shopping_cart:add_to_cart' product.slug %}" method="post" target="frame">
-                    {% else %}
-                        <form action="{% url 'accounts:login'%}" method="get">
-                    {% endif %}
-                    {% csrf_token %}
-                    <button onclick="document.getElementById('{{ product.slug }}').click()">Dodaj do koszyka</button>
-                    <input id="{{ product.slug }}" type="submit" style="display:none">
-                </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Produkt</th>
+            <th scope="col">Cena</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in object_list %}
+        <tr>
+            {% if product.category.name == 'course' %}
+                <td>{{ product.title }}</td>
+                <td>{{ product.price }}</td>
+                        {% if user.is_authenticated %}
+                            <form action="{% url 'shopping_cart:add_to_cart' product.slug %}" method="post" target="frame">
+                        {% else %}
+                            <form action="{% url 'accounts:login'%}" method="get">
+                        {% endif %}
+                        {% csrf_token %}
+                        <td><button class="btn btn-success btn-sm" onclick="document.getElementById('{{ product.slug }}').click()">Dodaj do koszyka</button></td>
+                        <input id="{{ product.slug }}" type="submit" style="display:none">
+                    </form>
 
-        {% endif %}
-    {% endfor %}
+
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
 
 </ul>
 
