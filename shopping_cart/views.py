@@ -3,19 +3,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
 from django.utils import timezone
 from django.views import View
-from django.views.generic import ListView, DeleteView
-from django.views.decorators.http import require_http_methods
-
-from shopping_cart.models import Order, OrderItem
+from shopping_cart.models import Order, OrderItem, Address
 from core.models import Product
-from accounts.models import Profile
-
 from shopping_cart.forms import CheckoutForm
-
-from shopping_cart.models import Address
 
 
 def is_valid_form(values):

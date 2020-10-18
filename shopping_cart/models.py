@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.validators import RegexValidator
 from django.db import models, transaction
 from django_countries.fields import CountryField
 from core.models import Product

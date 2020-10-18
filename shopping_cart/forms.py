@@ -1,6 +1,8 @@
 from django import forms
+from django.core.validators import RegexValidator
 from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
+import re
 
 PAYMENT_CHOICES = (
     ('B', 'Blik'),
@@ -12,7 +14,7 @@ PAYMENT_CHOICES = (
 
 class CheckoutForm(forms.Form):
     billing_address = forms.CharField(required=False, initial='ul. Krakowska 5')
-    billing_country = CountryField(default='PL' ,blank_label='(wybierz kraj').formfield(
+    billing_country = CountryField(default='PL', blank_label='(wybierz kraj').formfield(
         required=False,
         widget=CountrySelectWidget(attrs={
             'class': 'custom-select d-block w-100',
