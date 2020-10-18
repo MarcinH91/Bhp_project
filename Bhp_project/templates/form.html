@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load crispy_forms_tags %}
-
+{% load extras %}
 {% block content %}
     {% crispy form %}
 {#    <form method="post">#}
@@ -11,4 +11,5 @@
 {#            <input type="submit" value="Submit" class="btn btn-primary">#}
 {#        {% endbuttons %}#}
 {#    </form>#}
+{#    <iframe name="frame" style="display: none"></iframe>#}
 {% endblock %}
