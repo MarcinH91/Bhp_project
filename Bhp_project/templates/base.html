@@ -1,23 +1,25 @@
 {% load bootstrap4 %}
 {% load static %}
 
-<html style="background-color: cadetblue" {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}"{% endif %}>
+<html {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}"{% endif %}>
 <head>
 
-    <link rel="stylesheet" href="{% static 'js/app.js' %}">
+    <script src="{% static 'js/app.js' %}"></script>
     <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}" />
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Szkolenia i Usługi BHP</title>
-    {% block styles %}{% bootstrap_css %}
+    {% bootstrap_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}" />
+    {% block styles %}
+
     {% block scripts %}{% bootstrap_javascript jquery='full' %}
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
-    <div class="container fixed">
-
+<nav class="navbar navbar-expand-lg bg-dark justify-content-center">
+    <div class="container">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link active" href="/">
@@ -73,8 +75,7 @@
 
 {#<div class="view" style="background-image: url({% static 'architecture.jpg' %});#}
 {# background-repeat: no-repeat; background-size: contain, cover; background-position: center center;">#}
-<div class="view" style="background-color: cadetblue;
- background-repeat: no-repeat; background-size: cover; background-position: center center;">
+{#<div class="view" >#}
 {#<div class="mask rgba-gradient align-center ">#}
 <div class="container">
 <br>

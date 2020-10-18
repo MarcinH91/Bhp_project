@@ -10,7 +10,7 @@ header,
   body,
   header,
   .view {
-    height: 1000px;
+    height: 1000px; background: darkgray ;
   }
 }
 @media (min-width: 800px) and (max-width: 850px) {
@@ -18,34 +18,39 @@ header,
   body,
   header,
   .view {
-    height: 600px;
+    height: 600px; background: darkgray;
   }
 }
+
+.container {background: darkgray}
+
+.dropdown-menu {background: darkgray}
 
 .btn .fa {
   margin-left: 3px;
 }
 
 .top-nav-collapse {
-  background-color: #424f95 !important;
+  background-color: white !important;
 }
 
 .navbar:not(.top-nav-collapse) {
-  background: transparent !important;
+  background: white !important;
+
 }
 
 @media (max-width: 991px) {
   .navbar:not(.top-nav-collapse) {
-    background: #424f95 !important;
+    background: brown !important;
   }
 }
 
 .btn-white {
-  color: black !important;
+  color: white !important;
 }
 
 h6 {
-  line-height: 1.7;
+  line-height: 1.7; color: white;
 }
 
 .rgba-gradient {
