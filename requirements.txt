@@ -4,4 +4,4 @@ django-model-utils==4.0.0
 django-crispy-forms==1.9.2
 pytest-django==3.10.0
 djangorestframework==3.11.0
-django-shopping-cart==0.1
+django-countries==6.1.3

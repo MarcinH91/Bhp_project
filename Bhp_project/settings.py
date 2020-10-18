@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'shopping_cart',
     'bootstrap4',
     'crispy_forms',
+    'django_countries'
 
 ]
 
