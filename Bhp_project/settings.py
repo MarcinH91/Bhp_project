@@ -143,5 +143,5 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'marcin.sopot@gmail.com'
-EMAIL_HOST_PASSWORD = 'M@rcin91'
+EMAIL_HOST_PASSWORD = '******'
 EMAIL_PORT = 587

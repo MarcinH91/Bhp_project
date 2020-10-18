@@ -28,7 +28,8 @@ class GoToCartView(DetailView):
 
 
 class ProductDetailView(DetailView):
-    pass
+    template_name = 'product_details.html'
+    model = Product
 
 
 class ProductCreateView(CreateView):

@@ -16,12 +16,7 @@ class Product(models.Model):
     slug = models.SlugField()
 
     def __str__(self):
-        return f'{self.title} costs {self.price}'
+        return f'{self.title} from {self.price}'
 
-# class Contact(models.Model):
-#     title = models.CharField(max_length=256)
-#     body = models.TextField()
-#
-#     def __str__(self):
-#         return self.title, self.body
+
 
