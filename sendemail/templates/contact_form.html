@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% load bootstrap4 %}
 
+{% load extras %}
 {% block content %}
     <br>
     {% if messages %}
     <ul>
 	{% for message in messages %}
-	<div class="alert alert-success col-lg-6 col-sm-12 col-xs-12 text-center mx-auto" role="alert">
+	<div class="alert alert-success col-lg-6 col-sm-12 col-xs-12 text-center mx-auto"  role="alert">
 	    <li class="{{ message.tags }}">{{ message }}</li>
 	</div>
 	{% endfor %}
     </ul>
     {% endif %}
-    <div class="col-lg-6 col-md-8 mx-auto">
+    <div class="col-lg-6 col-md-8 mx-auto" >
 	{% crispy form %}
     </div>
+    <iframe name="frame" style="display: none"></iframe>
 {% endblock %}
 
 

@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'accounts',
+    'sendemail',
     'shopping_cart',
     'bootstrap4',
     'crispy_forms',
+    'bootstrap_themes',
 
 ]
 
@@ -134,3 +136,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'marcin.sopot@gmail.com'
+EMAIL_HOST_PASSWORD = 'M@rcin91'
+EMAIL_PORT = 587

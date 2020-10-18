@@ -1,0 +1,6 @@
+@font-face {
+    font-family: Glyphicons Halflings;
+    font-style: normal;
+    font-weight: normal;
+    src: local("Glyphicons Halflings"), url("/Bhp_project/static/fonts/glyphicons-halflings-regular.ttf") format("truetype");
+}
