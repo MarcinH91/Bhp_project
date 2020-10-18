@@ -5,7 +5,7 @@
     {% for products in object_list %}
       <li>
         {% product_format product short=True %}
-{#        <a href="{% url 'core:product_details' product.pk %}">Detail</a> /#}
+        <a href="{% url 'core:product_details' product.pk %}">Szczegóły</a> /
 {#        <a href="{% url 'core:product_update' product.pk %}">Update</a> /#}
 {#        <a href="{% url 'core:product_delete' product.pk %}">Delete</a>#}
       </li>

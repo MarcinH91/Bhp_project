@@ -8,7 +8,8 @@
 <ul>
     {% for product in object_list %}
         {% if product.category.name == 'service' %}
-            <li>{% product_format product %}</li>
+            <li>{% product_format product %}
+            <a href="{% url 'core:product_details' product.pk %}">Szczegóły</a></li>
                 <form action="{% url 'shopping_cart:add_to_cart' product.pk %}" method="post" target="frame">
                     {% csrf_token %}
                     <button onclick="document.getElementById('{{ product.pk }}').click()">Dodaj do koszyka</button>
