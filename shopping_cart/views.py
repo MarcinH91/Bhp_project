@@ -132,7 +132,7 @@ class CheckoutView(LoginRequiredMixin, View):
                     else:
                         messages.info(
                             self.request, "No default billing address available")
-                        return redirect('core:checkout')
+                        return redirect('shopping_cart:checkout')
                 else:
                     billing_address1 = form.cleaned_data.get(
                         'billing_address')
@@ -167,17 +167,21 @@ class CheckoutView(LoginRequiredMixin, View):
                 payment_option = form.cleaned_data.get('payment_option')
 
                 if payment_option == 'B':
-                    return redirect('core:payment', payment_option='blik')
+                    return redirect('/', payment_option='blik')
                 elif payment_option == 'P':
-                    return redirect('core:payment', payment_option='paypal')
+                    return redirect('/', payment_option='paypal')
                 elif payment_option == 'O':
-                    return redirect('core:payment', payment_option='przelew')
+                    return redirect('/', payment_option='transfer')
                 elif payment_option == 'K':
-                    return redirect('core:payment', payment_option='karta')
+                    return redirect('/', payment_option='card')
                 else:
                     messages.warning(
                         self.request, "Invalid payment option selected")
-                    return redirect('core:checkout')
+                    return redirect('shopping_cart:checkout')
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
             return redirect("/")
+
+
+
+
