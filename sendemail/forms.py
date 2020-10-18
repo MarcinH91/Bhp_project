@@ -2,7 +2,8 @@ from django import forms
 from django.core.mail import send_mail
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Field
+from crispy_forms.layout import Submit
+
 
 # https://data-flair.training/blogs/django-send-email/
 
@@ -22,5 +23,6 @@ class ContactForm(forms.Form):
     email = forms.EmailField(max_length=254)
     subject = forms.CharField(max_length=100, widget=forms.TextInput)
     message = forms.CharField(max_length=254, widget=forms.Textarea)
+
 
 
