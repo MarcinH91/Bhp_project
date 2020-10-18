@@ -1,7 +1,7 @@
 {% load bootstrap4 %}
 {% load static %}
 
-<html {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}"{% endif %}>
+<html style="background-color: cadetblue" {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}"{% endif %}>
 <head>
 
     <link rel="stylesheet" href="{% static 'js/app.js' %}">
@@ -71,29 +71,25 @@
     </div>
 </nav>
 
-<div class="view" style="background-image: url({% static 'architecture.jpg' %});
+{#<div class="view" style="background-image: url({% static 'architecture.jpg' %});#}
+{# background-repeat: no-repeat; background-size: contain, cover; background-position: center center;">#}
+<div class="view" style="background-color: cadetblue;
  background-repeat: no-repeat; background-size: cover; background-position: center center;">
-<div class="mask rgba-gradient align-items-center">
+{#<div class="mask rgba-gradient align-center ">#}
 <div class="container">
 <br>
 <br>
-<div class="row">
+<div class="row justify-content-md-left">
     <div class="col-md-7 white-text text-left text-md-left mt-xl-5 mb-5 wow fadeInLeft" data-wow-delay="0.3s">
         {% block content %}{% endblock %}
     </div>
-</div>
- <div class="col-md-6 col-xl-5 mt-xl-5 wow fadeInRight" data-wow-delay="0.3s">
-                    <img src="{% static 'image1.png' %}" alt="" class="img-fluid">
-                  </div>
-<main>
-          <div class="container">
-            <!--Grid row-->
-            <div class="row py-5">
-              <!--Grid column-->
-              <div class="col-md-14 text-left">
-                   <p>©2020 by Bartek and Marcin</p>
-              </div>
+{#</div>#}
+{# <div class="col-md-6 col-xl-5 mt-xl-5 wow fadeInRight" data-wow-delay="0.3s">#}
+{#                    <img src="{% static 'image1.png' %}" alt="" class="img-fluid">#}
+{#                  </div>#}
+
 </body>
+
 </html>
 {% endblock %}
 {% endblock %}
